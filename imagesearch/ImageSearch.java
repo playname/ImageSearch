@@ -3,8 +3,6 @@ package imagesearch;
 import java.io.IOException;
 import java.net.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 
 public class ImageSearch {
