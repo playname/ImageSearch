@@ -3,6 +3,8 @@ package imagesearch;
 import java.io.IOException;
 import java.net.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class ImageSearch {
@@ -11,6 +13,8 @@ public class ImageSearch {
         ArrayList<String> imgUrl = new ArrayList<>();
         String query = JOptionPane.showInputDialog("Image search:").replace(" ", "+");
         System.out.println("Search query: " + query);
+        
+        Window w = new Window();
 
         if (query != null) {
             try {
@@ -43,9 +47,10 @@ public class ImageSearch {
         } else {
             for (int i = 0; i < imgUrl.size(); i++) {
                 String path = "https:" + imgUrl.get(i);
-                Window w = new Window(path);
+                try { w.pic(path); } catch (IOException ex) {}
+                
                 System.out.println(path);
-                try {Thread.sleep(1000);} catch (InterruptedException ex) {}
+                try { Thread.sleep(1000); } catch (InterruptedException ex) {}
             }
         }
     }
